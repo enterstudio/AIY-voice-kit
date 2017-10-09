@@ -1,0 +1,13 @@
+[Unit]
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStartPre=/bin/sleep 30
+ExecStart=/bin/bash -c '/home/pi/AIY-voice-kit-python/env/bin/python3 -u /home/pi/AIY-voice-kit-python/src/assistant_library_demo.py'
+WorkingDirectory=/home/pi/AIY-voice-kit-python
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
